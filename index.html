@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rajat Maharjan | IT Support Portfolio</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;800&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box}
+    :root{
+      --bg:#050510;
+      --bg2:#0b0b1f;
+      --red:#ff174d;
+      --purple:#8b5cf6;
+      --blue:#00d4ff;
+      --pink:#ff2bd6;
+      --text:#f8fbff;
+      --soft:#a8b0c3;
+      --card:rgba(255,255,255,.055);
+      --line:rgba(255,255,255,.12);
+      --shadow:0 30px 90px rgba(0,0,0,.45);
+    }
+
+    html{scroll-behavior:smooth}
+    body{
+      font-family:'Outfit',sans-serif;
+      background:var(--bg);
+      color:var(--text);
+      overflow-x:hidden;
+      line-height:1.6;
+    }
+
+    body:before{
+      content:"";
+      position:fixed;
+      inset:0;
+      z-index:-4;
+      background:
+        radial-gradient(circle at 20% 15%,rgba(255,23,77,.26),transparent 32%),
+        radial-gradient(circle at 80% 12%,rgba(0,212,255,.24),transparent 30%),
+        radial-gradient(circle at 50% 80%,rgba(139,92,246,.24),transparent 35%),
+        linear-gradient(135deg,#050510,#080820 55%,#03030b);
+    }
+
+    body:after{
+      content:"";
+      position:fixed;
+      inset:0;
+      z-index:-3;
+      background-image:
+        linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px),
+        linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px);
+      background-size:70px 70px;
+      mask-image:linear-gradient(to bottom,rgba(0,0,0,.9),rgba(0,0,0,.15));
+      animation:gridMove 18s linear infinite;
+    }
+    @keyframes gridMove{to{transform:translateY(70px)}}
+
+    .light-orb{
+      position:fixed;
+      border-radius:50%;
+      filter:blur(90px);
+      opacity:.28;
+      pointer-events:none;
+      z-index:-2;
+      animation:orbFloat 10s ease-in-out infinite;
+    }
+    .orb-a{width:430px;height:430px;background:var(--red);top:-130px;left:-120px}
+    .orb-b{width:520px;height:520px;background:var(--blue);right:-180px;top:120px;animation-delay:-4s}
+    .orb-c{width:420px;height:420px;background:var(--purple);left:38%;bottom:-180px;animation-delay:-7s}
+    @keyframes orbFloat{50%{transform:translateY(-35px) scale(1.08)}}
+
+    nav{
+      position:fixed;top:0;left:0;right:0;z-index:1000;
+      display:flex;align-items:center;justify-content:space-between;
+      padding:18px 6%;
+      background:rgba(5,5,16,.72);
+      backdrop-filter:blur(22px);
+      border-bottom:1px solid rgba(255,255,255,.08);
+    }
+    .logo{
+      font-family:'Orbitron',sans-serif;
+      font-weight:800;
+      letter-spacing:2px;
+      text-decoration:none;
+      color:white;
+      font-size:1.1rem;
+    }
+    .logo span{background:linear-gradient(90deg,var(--red),var(--purple),var(--blue));-webkit-background-clip:text;color:transparent}
+    .nav-links{display:flex;gap:28px;list-style:none}
+    .nav-links a{color:#c8cede;text-decoration:none;font-size:.9rem;transition:.3s}
+    .nav-links a:hover{color:var(--blue)}
+    .nav-btn{
+      color:white;text-decoration:none;padding:10px 18px;border-radius:999px;
+      background:linear-gradient(90deg,var(--red),var(--purple),var(--blue));
+      box-shadow:0 0 25px rgba(139,92,246,.35);
+      font-weight:700;font-size:.86rem;
+    }
+
+    .hero{
+      min-height:100vh;
+      position:relative;
+      display:grid;
+      place-items:center;
+      padding:120px 6% 80px;
+      overflow:hidden;
+    }
+    .hero-cinematic{
+      position:absolute;inset:0;z-index:-1;opacity:.65;
+      background:
+        linear-gradient(115deg,transparent 0 32%,rgba(255,23,77,.18) 32% 34%,transparent 34% 62%,rgba(0,212,255,.18) 62% 64%,transparent 64%),
+        repeating-linear-gradient(90deg,rgba(255,255,255,.045) 0 1px,transparent 1px 130px);
+      animation:cinemaSlide 9s linear infinite;
+    }
+    @keyframes cinemaSlide{to{transform:translateX(-130px)}}
+    .hero-wrap{max-width:1150px;width:100%;display:grid;grid-template-columns:1.15fr .85fr;gap:50px;align-items:center}
+    .badge{
+      display:inline-flex;gap:10px;align-items:center;margin-bottom:24px;
+      padding:10px 16px;border-radius:999px;border:1px solid rgba(255,255,255,.14);
+      background:rgba(255,255,255,.055);backdrop-filter:blur(15px);color:#d9e0f2;font-size:.88rem;
+    }
+    .badge-dot{width:9px;height:9px;border-radius:50%;background:var(--blue);box-shadow:0 0 18px var(--blue);animation:pulse 1.8s infinite}
+    @keyframes pulse{50%{transform:scale(1.6);opacity:.55}}
+    h1{
+      font-family:'Orbitron',sans-serif;
+      font-size:clamp(3rem,7vw,6.8rem);
+      line-height:.96;
+      letter-spacing:-3px;
+      text-transform:uppercase;
+    }
+    h1 span{display:block;background:linear-gradient(90deg,var(--red),var(--purple),var(--blue));-webkit-background-clip:text;color:transparent;background-size:220%;animation:gradientFlow 5s ease infinite}
+    @keyframes gradientFlow{50%{background-position:100%}}
+    .hero p{max-width:650px;margin:26px 0 34px;color:var(--soft);font-size:1.15rem}
+    .hero-actions{display:flex;flex-wrap:wrap;gap:16px}
+    .btn{display:inline-flex;align-items:center;gap:10px;padding:14px 24px;border-radius:16px;text-decoration:none;font-weight:800;transition:.35s}
+    .btn-main{background:linear-gradient(90deg,var(--red),var(--purple),var(--blue));color:white;box-shadow:0 15px 45px rgba(139,92,246,.36)}
+    .btn-ghost{border:1px solid rgba(255,255,255,.15);color:white;background:rgba(255,255,255,.045)}
+    .btn:hover{transform:translateY(-4px)}
+
+    .holo-card{
+      min-height:430px;border-radius:34px;padding:28px;position:relative;overflow:hidden;
+      background:linear-gradient(145deg,rgba(255,255,255,.09),rgba(255,255,255,.025));
+      border:1px solid rgba(255,255,255,.13);
+      box-shadow:var(--shadow);
+    }
+    .holo-card:before{
+      content:"";position:absolute;inset:-60%;
+      background:conic-gradient(from 180deg,var(--red),var(--purple),var(--blue),var(--red));
+      opacity:.25;animation:rotate 8s linear infinite;
+    }
+    @keyframes rotate{to{transform:rotate(360deg)}}
+    .holo-inner{position:relative;z-index:2;height:100%;border-radius:24px;background:rgba(0,0,0,.35);border:1px solid rgba(255,255,255,.11);padding:24px;overflow:hidden}
+    .screen-lines{position:absolute;inset:0;background:repeating-linear-gradient(to bottom,transparent 0 7px,rgba(255,255,255,.035) 8px 9px);animation:scan 3s linear infinite}
+    @keyframes scan{to{transform:translateY(18px)}}
+    .terminal-box{position:relative;z-index:2;margin-top:40px;font-family:monospace;color:#99f6e4;font-size:.9rem}
+    .terminal-box div{margin:12px 0;text-shadow:0 0 18px rgba(0,212,255,.8)}
+    .terminal-box .pink{color:#ff7aaa}.terminal-box .blue{color:#7dd3fc}.terminal-box .purple{color:#c4b5fd}
+
+    section{position:relative;padding:96px 6%;z-index:2}
+    .section-head{text-align:center;max-width:760px;margin:0 auto 52px}
+    .section-kicker{text-transform:uppercase;letter-spacing:3px;color:var(--blue);font-weight:800;font-size:.75rem}
+    .section-title{font-family:'Orbitron',sans-serif;font-size:clamp(2rem,4vw,3.4rem);line-height:1.1;margin-top:12px}
+    .section-title span{background:linear-gradient(90deg,var(--red),var(--purple),var(--blue));-webkit-background-clip:text;color:transparent}
+
+    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;max-width:1180px;margin:auto}
+    .media-card{
+      position:relative;overflow:hidden;border-radius:28px;min-height:360px;
+      background:var(--card);border:1px solid rgba(255,255,255,.12);
+      box-shadow:var(--shadow);transition:.45s;
+    }
+    .media-card:hover{transform:translateY(-10px);border-color:rgba(0,212,255,.4)}
+
+    .video-panel{height:185px;position:relative;overflow:hidden;background:#050510}
+    .video-panel:before{content:"";position:absolute;inset:0;background:var(--motion);background-size:220% 220%;animation:motionBg 7s ease infinite}
+    .video-panel:after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(5,5,16,.84),transparent 55%),repeating-linear-gradient(to bottom,rgba(255,255,255,.035) 0 1px,transparent 1px 6px)}
+    @keyframes motionBg{50%{background-position:100% 100%}}
+    .net-lines{position:absolute;inset:0;z-index:2;background:linear-gradient(125deg,transparent 10%,rgba(255,255,255,.45) 11%,transparent 12%,transparent 35%,rgba(255,255,255,.28) 36%,transparent 37%,transparent 65%,rgba(255,255,255,.25) 66%,transparent 67%);animation:lineMove 4s linear infinite}
+    @keyframes lineMove{to{transform:translateX(80px)}}
+    .floating-symbol{position:absolute;inset:0;z-index:3;display:grid;place-items:center;font-size:4.6rem;color:white;filter:drop-shadow(0 0 22px rgba(0,212,255,.9));animation:float 3.8s ease-in-out infinite}
+    @keyframes float{50%{transform:translateY(-12px) scale(1.06)}}
+
+    .card-body{padding:24px;position:relative;z-index:4}
+    .card-body h3{font-family:'Orbitron',sans-serif;font-size:1.1rem;margin-bottom:10px}
+    .card-body p{color:var(--soft);font-size:.94rem;margin-bottom:18px}
+    .tags{display:flex;flex-wrap:wrap;gap:8px}
+    .tag{font-size:.75rem;color:#eaf7ff;padding:6px 10px;border-radius:999px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12)}
+
+    .timeline{max-width:930px;margin:auto;position:relative;padding-left:28px}
+    .timeline:before{content:"";position:absolute;left:0;top:0;bottom:0;width:2px;background:linear-gradient(var(--red),var(--purple),var(--blue))}
+    .time-card{position:relative;margin-bottom:26px;padding:26px;border-radius:24px;background:rgba(255,255,255,.055);border:1px solid rgba(255,255,255,.12);box-shadow:var(--shadow)}
+    .time-card:before{content:"";position:absolute;left:-36px;top:30px;width:16px;height:16px;border-radius:50%;background:var(--blue);box-shadow:0 0 25px var(--blue)}
+    .time-top{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-bottom:6px}
+    .time-top h3{font-family:'Orbitron',sans-serif;font-size:1rem}.period{color:var(--blue);font-weight:800}.company{color:var(--soft);margin-bottom:14px}
+    .time-card li{margin-left:18px;color:#cbd3e4;margin-bottom:8px}
+
+    .about-wrap{max-width:1100px;margin:auto;display:grid;grid-template-columns:1fr 1fr;gap:24px}
+    .glass{padding:28px;border-radius:26px;background:rgba(255,255,255,.055);border:1px solid rgba(255,255,255,.12);box-shadow:var(--shadow)}
+    .glass h3{font-family:'Orbitron',sans-serif;margin-bottom:18px;color:white}.glass p,.glass li{color:var(--soft);margin-bottom:10px}.glass ul{list-style:none}.glass li i{color:var(--blue);margin-right:10px}
+
+    .contact-box{max-width:760px;margin:auto;text-align:center;padding:42px;border-radius:32px;background:linear-gradient(145deg,rgba(255,255,255,.085),rgba(255,255,255,.035));border:1px solid rgba(255,255,255,.14);box-shadow:var(--shadow);position:relative;overflow:hidden}
+    .contact-box:before{content:"";position:absolute;inset:-70%;background:conic-gradient(var(--red),var(--purple),var(--blue),var(--red));opacity:.12;animation:rotate 8s linear infinite}
+    .contact-box>*{position:relative;z-index:2}.contact-box h2{font-family:'Orbitron',sans-serif;font-size:2rem;margin-bottom:10px}.contact-box p{color:var(--soft);margin-bottom:24px}
+    .contact-links{display:flex;justify-content:center;gap:12px;flex-wrap:wrap}.contact-links a{color:white;text-decoration:none;padding:12px 16px;border-radius:14px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12)}
+    footer{text-align:center;padding:28px;color:var(--soft);border-top:1px solid rgba(255,255,255,.08)}
+
+    .reveal{opacity:0;transform:translateY(30px);transition:1s}.reveal.visible{opacity:1;transform:translateY(0)}
+
+    @media(max-width:950px){.hero-wrap,.about-wrap{grid-template-columns:1fr}.grid{grid-template-columns:1fr 1fr}.holo-card{min-height:320px}}
+    @media(max-width:650px){nav{padding:14px 5%}.nav-links{display:none}.grid{grid-template-columns:1fr}.hero{padding-top:105px}h1{letter-spacing:-1px}.hero-actions{flex-direction:column}.btn{justify-content:center}.media-card{min-height:330px}}
+  </style>
+</head>
+<body>
+  <div class="light-orb orb-a"></div><div class="light-orb orb-b"></div><div class="light-orb orb-c"></div>
+
+  <nav>
+    <a href="#hero" class="logo">RAJAT<span>.</span></a>
+    <ul class="nav-links">
+      <li><a href="#skills">Skills</a></li><li><a href="#experience">Experience</a></li><li><a href="#projects">Projects</a></li><li><a href="#about">About</a></li><li><a href="#contact">Contact</a></li>
+    </ul>
+    <a class="nav-btn" href="mailto:rawzatmhzn@gmail.com">Hire Me</a>
+  </nav>
+
+  <section class="hero" id="hero">
+    <div class="hero-cinematic"></div>
+    <div class="hero-wrap">
+      <div class="reveal">
+        <div class="badge"><span class="badge-dot"></span> Available for Level 1 Service Desk roles</div>
+        <h1>Rajat <span>Maharjan</span></h1>
+        <p>IT Support Technician based in Newcastle, NSW. I focus on service desk support, troubleshooting, device setup, networking basics, and clear technical help for everyday users.</p>
+        <div class="hero-actions"><a href="#projects" class="btn btn-main"><i class="fa-solid fa-play"></i> View Projects</a><a href="#contact" class="btn btn-ghost"><i class="fa-solid fa-paper-plane"></i> Contact Me</a></div>
+      </div>
+      <div class="holo-card reveal">
+        <div class="holo-inner">
+          <div class="screen-lines"></div>
+          <div class="terminal-box">
+            <div class="pink">$ service-desk --profile Rajat</div>
+            <div class="blue">Checking Windows 10/11 support...</div>
+            <div class="purple">Network, DNS, DHCP diagnostics ready</div>
+            <div>Microsoft 365 support loaded</div>
+            <div class="pink">Status: Ready for IT Support role ▌</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="skills">
+    <div class="section-head reveal"><div class="section-kicker">Cinematic Skill Showcase</div><h2 class="section-title">Skills with <span>Motion Visuals</span></h2></div>
+    <div class="grid">
+      <article class="media-card reveal"><div class="video-panel" style="--motion:linear-gradient(135deg,rgba(255,23,77,.72),rgba(139,92,246,.7),rgba(0,212,255,.75));"><div class="net-lines"></div><div class="floating-symbol"><i class="fa-solid fa-desktop"></i></div></div><div class="card-body"><h3>Operating Systems</h3><p>Windows 10/11 troubleshooting, mobile device setup, app issues, and everyday user support.</p><div class="tags"><span class="tag">Windows 10/11</span><span class="tag">iOS</span><span class="tag">Android</span></div></div></article>
+      <article class="media-card reveal"><div class="video-panel" style="--motion:radial-gradient(circle at 30% 30%,rgba(0,212,255,.8),transparent 28%),linear-gradient(135deg,rgba(139,92,246,.78),rgba(255,23,77,.55));"><div class="net-lines"></div><div class="floating-symbol"><i class="fa-solid fa-network-wired"></i></div></div><div class="card-body"><h3>Networking</h3><p>TCP/IP, DNS, DHCP, Wi‑Fi troubleshooting, IP configuration, and connectivity testing.</p><div class="tags"><span class="tag">TCP/IP</span><span class="tag">DNS</span><span class="tag">DHCP</span></div></div></article>
+      <article class="media-card reveal"><div class="video-panel" style="--motion:linear-gradient(45deg,rgba(0,212,255,.75),rgba(139,92,246,.7),rgba(255,43,214,.5));"><div class="net-lines"></div><div class="floating-symbol"><i class="fa-solid fa-cloud"></i></div></div><div class="card-body"><h3>Microsoft 365 & Cloud</h3><p>Outlook, Teams, Microsoft 365 basics, Azure AD / Entra ID learning, and account support.</p><div class="tags"><span class="tag">Microsoft 365</span><span class="tag">Teams</span><span class="tag">Azure AD</span></div></div></article>
+      <article class="media-card reveal"><div class="video-panel" style="--motion:linear-gradient(135deg,rgba(255,23,77,.72),rgba(0,212,255,.46)),repeating-linear-gradient(45deg,rgba(255,255,255,.1) 0 2px,transparent 2px 20px);"><div class="net-lines"></div><div class="floating-symbol"><i class="fa-solid fa-headset"></i></div></div><div class="card-body"><h3>IT Support</h3><p>Ticket logging, incident management, remote support, troubleshooting, escalation, and documentation.</p><div class="tags"><span class="tag">Service Desk</span><span class="tag">Tickets</span><span class="tag">Remote Support</span></div></div></article>
+      <article class="media-card reveal"><div class="video-panel" style="--motion:radial-gradient(circle at 75% 30%,rgba(255,23,77,.75),transparent 25%),linear-gradient(135deg,rgba(139,92,246,.78),rgba(0,212,255,.5));"><div class="net-lines"></div><div class="floating-symbol"><i class="fa-solid fa-screwdriver-wrench"></i></div></div><div class="card-body"><h3>Hardware & Devices</h3><p>Device setup, mobile troubleshooting, POS support, scanner issues, and basic hardware fault checking.</p><div class="tags"><span class="tag">Device Setup</span><span class="tag">POS</span><span class="tag">Hardware</span></div></div></article>
+      <article class="media-card reveal"><div class="video-panel" style="--motion:linear-gradient(135deg,rgba(0,212,255,.65),rgba(255,23,77,.55),rgba(139,92,246,.8));"><div class="net-lines"></div><div class="floating-symbol"><i class="fa-solid fa-code"></i></div></div><div class="card-body"><h3>Web Development</h3><p>HTML, CSS, JavaScript, responsive design, GitHub Pages, debugging, and portfolio development.</p><div class="tags"><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">JavaScript</span></div></div></article>
+    </div>
+  </section>
+
+  <section id="experience">
+    <div class="section-head reveal"><div class="section-kicker">Career Journey</div><h2 class="section-title">Work <span>Experience</span></h2></div>
+    <div class="timeline">
+      <div class="time-card reveal"><div class="time-top"><h3>Mobile Device Technician & Sales Assistant</h3><div class="period">Jul 2023 – May 2025</div></div><div class="company">Mobile Experts — Charlestown, NSW</div><ul><li>Diagnosed and resolved 10+ daily hardware and software issues across mobile devices.</li><li>Troubleshot connectivity, performance, application, and device setup problems.</li><li>Explained technical solutions clearly to non-technical customers.</li><li>Maintained service records and followed structured support workflows.</li></ul></div>
+      <div class="time-card reveal"><div class="time-top"><h3>Customer Service Team Member — POS & Systems Support</h3><div class="period">Feb 2023 – Aug 2024</div></div><div class="company">Spotlight Retail Group — Bennetts Green, NSW</div><ul><li>Supported POS systems in a high-volume retail environment.</li><li>Resolved scanner errors, login failures, and connectivity issues.</li><li>Escalated unresolved technical issues following support procedures.</li></ul></div>
+      <div class="time-card reveal"><div class="time-top"><h3>Client Support & Administrative Assistant</h3><div class="period">Dec 2019 – Jan 2022</div></div><div class="company">Castle Education Consultancy — Kathmandu, Nepal</div><ul><li>Delivered customer and administrative support via phone and email.</li><li>Maintained digital records and supported basic office system troubleshooting.</li></ul></div>
+    </div>
+  </section>
+
+  <section id="projects">
+    <div class="section-head reveal"><div class="section-kicker">Project Cinema</div><h2 class="section-title">Featured <span>Projects</span></h2></div>
+    <div class="grid">
+      <article class="media-card reveal"><div class="video-panel" style="--motion:linear-gradient(120deg,rgba(255,23,77,.75),rgba(139,92,246,.75),rgba(0,212,255,.65));"><div class="net-lines"></div><div class="floating-symbol"><i class="fa-solid fa-diagram-project"></i></div></div><div class="card-body"><h3>Home Lab Networking Setup</h3><p>Built a virtual home lab simulating enterprise networking with DHCP, DNS, static IPs, and connectivity testing.</p><div class="tags"><span class="tag">DNS</span><span class="tag">DHCP</span><span class="tag">Windows Server</span></div></div></article>
+      <article class="media-card reveal"><div class="video-panel" style="--motion:radial-gradient(circle at 20% 20%,rgba(255,23,77,.8),transparent 28%),linear-gradient(135deg,rgba(0,212,255,.65),rgba(139,92,246,.75));"><div class="net-lines"></div><div class="floating-symbol"><i class="fa-solid fa-ticket"></i></div></div><div class="card-body"><h3>IT Help Desk Ticketing Practice</h3><p>Practised incident logging, prioritisation, escalation paths, SLA thinking, and structured help desk communication.</p><div class="tags"><span class="tag">osTicket</span><span class="tag">SLA</span><span class="tag">Escalation</span></div></div></article>
+      <article class="media-card reveal"><div class="video-panel" style="--motion:linear-gradient(135deg,rgba(139,92,246,.8),rgba(255,23,77,.55),rgba(0,212,255,.58));"><div class="net-lines"></div><div class="floating-symbol"><i class="fa-solid fa-laptop-code"></i></div></div><div class="card-body"><h3>Responsive Portfolio Website</h3><p>Designed and built a responsive portfolio using HTML, CSS, and JavaScript with animations and mobile-friendly layout.</p><div class="tags"><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">JavaScript</span></div></div></article>
+      <article class="media-card reveal"><div class="video-panel" style="--motion:linear-gradient(45deg,rgba(0,212,255,.7),rgba(139,92,246,.85),rgba(255,23,77,.55));"><div class="net-lines"></div><div class="floating-symbol"><i class="fa-solid fa-server"></i></div></div><div class="card-body"><h3>Active Directory & User Management</h3><p>Created a Windows Server lab to practise user creation, groups, password resets, and account provisioning.</p><div class="tags"><span class="tag">Active Directory</span><span class="tag">Group Policy</span><span class="tag">Users</span></div></div></article>
+      <article class="media-card reveal"><div class="video-panel" style="--motion:radial-gradient(circle at 70% 40%,rgba(0,212,255,.7),transparent 25%),linear-gradient(135deg,rgba(255,23,77,.68),rgba(139,92,246,.75));"><div class="net-lines"></div><div class="floating-symbol"><i class="fa-solid fa-mobile-screen-button"></i></div></div><div class="card-body"><h3>Mobile Device Troubleshooting</h3><p>Applied real customer support experience to diagnose performance, software, connectivity, and setup issues.</p><div class="tags"><span class="tag">Mobile Repair</span><span class="tag">Troubleshooting</span><span class="tag">Support</span></div></div></article>
+      <article class="media-card reveal"><div class="video-panel" style="--motion:linear-gradient(135deg,rgba(139,92,246,.75),rgba(0,212,255,.65),rgba(255,23,77,.55));"><div class="net-lines"></div><div class="floating-symbol"><i class="fa-solid fa-cloud-arrow-up"></i></div></div><div class="card-body"><h3>Cloud Migration Case Study</h3><p>Academic project exploring cloud migration planning, benefits, risks, and support requirements for an organisation.</p><div class="tags"><span class="tag">Cloud</span><span class="tag">Planning</span><span class="tag">Research</span></div></div></article>
+    </div>
+  </section>
+
+  <section id="about">
+    <div class="section-head reveal"><div class="section-kicker">Background</div><h2 class="section-title">About <span>Me</span></h2></div>
+    <div class="about-wrap">
+      <div class="glass reveal"><h3>Education & Certifications</h3><p><strong>Bachelor of Information Technology</strong><br>King's Own Institute, Sydney · Jul 2022 – Feb 2025</p><p><strong>Planned:</strong> CompTIA A+ and Microsoft 365 Fundamentals (MS‑900)</p></div>
+      <div class="glass reveal"><h3>Quick Info</h3><ul><li><i class="fa-solid fa-location-dot"></i> Newcastle, NSW, Australia</li><li><i class="fa-solid fa-phone"></i> 0415 541 006</li><li><i class="fa-solid fa-envelope"></i> rawzatmhzn@gmail.com</li><li><i class="fa-solid fa-circle-check"></i> Full working rights in Australia</li><li><i class="fa-solid fa-car"></i> Current Australian driver's licence & own vehicle</li><li><i class="fa-solid fa-bullseye"></i> Seeking Level 1 Service Desk roles</li></ul></div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="contact-box reveal"><h2>Open to Opportunities 🚀</h2><p>I am actively looking for Level 1 Service Desk / IT Support roles in Newcastle and nearby areas.</p><div class="contact-links"><a href="mailto:rawzatmhzn@gmail.com"><i class="fa-solid fa-envelope"></i> Email</a><a href="tel:0415541006"><i class="fa-solid fa-phone"></i> Call</a><a href="https://linkedin.com/in/rajat-maharjan" target="_blank"><i class="fa-brands fa-linkedin"></i> LinkedIn</a></div></div>
+  </section>
+
+  <footer>Designed with red, purple & blue cinematic motion by Rajat Maharjan.</footer>
+
+  <script>
+    const observer = new IntersectionObserver((entries)=>{
+      entries.forEach((entry)=>{ if(entry.isIntersecting) entry.target.classList.add('visible'); });
+    },{threshold:.13});
+    document.querySelectorAll('.reveal').forEach((el,i)=>{el.style.transitionDelay=(i%3)*.08+'s';observer.observe(el)});
+
+    document.addEventListener('mousemove',(e)=>{
+      const x=(e.clientX/window.innerWidth-.5)*18;
+      const y=(e.clientY/window.innerHeight-.5)*18;
+      document.querySelectorAll('.light-orb').forEach((orb,i)=>{orb.style.transform=`translate(${x*(i+1)}px, ${y*(i+1)}px)`});
+    });
+  </script>
+</body>
+</html>
